@@ -49,6 +49,13 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
             
+        })
+
+        .state('average', {
+            url: '/average',
+            views: {
+                '': { templateUrl: 'html/average.html' }
+            }
         });
 		
         
