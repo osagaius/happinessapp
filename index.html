@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>How happy?</title>
+    <!-- load bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
+    <!-- JS (load angular, ui-router, and our application scripts) -->
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="scripts/listReasons.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/config.js"></script>
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="HappinessApp">
+
+<!-- navigation bar -->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="#">Happiness App</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="about">About</a></li>
+    </ul>
+</nav>
+
+<!-- injected content -->
+<div class="container">
+    <div ui-view></div>
+</div>
+
+<!-- footer -->
+<p></p>
+<div class="text-center">
+    <p>An app by The Happiness People&#0153;.</p>
+	<p>Like us with donations of unmarked C-notes..</p>
+</div>
+
+</body>
+</html>
