@@ -1,9 +1,9 @@
 happinessApp.config(function($stateProvider, $urlRouterProvider) {
-    
+
     $urlRouterProvider.otherwise('/home');
     
     $stateProvider 
-        
+
         // home state with nested views
         .state('home', { 
             url: '/home',
@@ -16,25 +16,25 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'html/home-why.html',
             controller: function($scope) {
                 $scope.reasons = ['Happiness makes you happy.', 
-							   'Unhappiness makes you sad.', 
-							   'Tracking happiness can make you happy.',
-							   'Your sadness will sadden your mother'];
+                'Unhappiness makes you sad.', 
+                'Tracking happiness can make you happy.',
+                'Your sadness will sadden your mother'];
             }
         })
         
         // nested view
         .state('home.what', {
             url: '/what',
-			templateUrl: 'html/home-what.html',
-			controller: function($scope) {
+            templateUrl: 'html/home-what.html',
+            controller: function($scope) {
                 $scope.reasons = ['This app lets you track how happy you are at the moment.'];
-			}
+            }
         })
-		
-		.state('home.purpose', {
+
+        .state('home.purpose', {
             url: '/purpose',
-			templateUrl: 'html/purpose.html',
-			controller: 'ReasonsController'
+            templateUrl: 'html/purpose.html',
+            controller: 'ReasonsController'
         })
         
         // about state with named views
@@ -53,10 +53,11 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
 
         .state('average', {
             url: '/average',
-            views: {
-                '': { templateUrl: 'html/average.html' }
+            templateUrl: 'html/average.html',
+            controller: function($scope) {
+                $scope.averageScore = 0;
             }
-        });
-		
+        })
+
         
-});
+    });
