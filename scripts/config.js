@@ -57,5 +57,10 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
             controller: 'ScoresController'
         })
 
+        .state('track', {
+            url: '/track',
+            templateUrl: 'html/track.html',
+            controller: 'ScoresController'
+        })
         
     });
