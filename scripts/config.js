@@ -54,9 +54,7 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
         .state('average', {
             url: '/average',
             templateUrl: 'html/average.html',
-            controller: function($scope) {
-                $scope.averageScore = 0;
-            }
+            controller: 'ScoresController'
         })
 
         
