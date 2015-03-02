@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
     <h2>Your average happiness score is:
-        {{ averageScore }}, based on {{scores.length}} scores
+        {{ averageScore.toPrecision(3) }}, based on {{scores.length}} scores
         which total: {{ scoresTotal }}</h2>
 </div>
