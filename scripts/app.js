@@ -19,11 +19,22 @@ happinessApp.factory('reasons', [function() {
 }]);
 
 happinessApp.factory('scores', [function() {
-    var averageScore = 0
+    var averageScore = 0;
+    var scores = [0, 1, 2];
 
     return {
         getAverageScore: function() {
-            return averageScore
+            var sum = 0;
+            for( var i = 0; i < scores.length; i++ ){
+                sum += scores[i];
+            }
+
+            var average = sum/scores.length;
+
+            return !!average ? average : 0;
+        },
+        getScores: function() {
+            return scores;
         }
     }
 }]);
@@ -36,12 +47,22 @@ happinessApp.controller('ReasonsController',
   ]
   );
 
-happinessApp.controller('ScoresController', 
-    [
-    '$scope',
-    'scores',
-    function($scope, scores) {
-        $scope.averageScore = scores.getAverageScore()
-    }
-    ]
-    );
+happinessApp.controller('ScoresController', function($scope, scores) {
+    $scope.scores = scores.getScores();
+
+    $scope.averageScore = scores.getAverageScore();
+
+    $scope.addScore = function() {
+        if(!$scope.score || $scope.score === '') { return; }
+
+        var currentScore = parseInt($scope.score, 10);
+        if(currentScore !== currentScore) {
+            return;
+        } else {
+            alert(currentScore);
+            $scope.scores.push(currentScore);
+        }
+        
+        $scope.score = '';
+    };
+});
