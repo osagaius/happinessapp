@@ -19,8 +19,7 @@ happinessApp.factory('reasons', [function() {
 }]);
 
 happinessApp.factory('scores', [function() {
-    var averageScore = 0;
-    var scores = [0, 1, 2];
+    var scores = [];
 
     return {
         getAverageScore: function() {
@@ -30,7 +29,6 @@ happinessApp.factory('scores', [function() {
             }
 
             var average = sum/scores.length;
-            this.scoresTotal = sum;
             return !!average ? average : 0;
         },
         getScores: function() {
