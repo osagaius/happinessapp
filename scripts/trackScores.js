@@ -4,6 +4,8 @@ var trackScores = function ($scope, scores) {
     $scope.maxScore = scores.getMaxScore();
     $scope.scoresTotal = scores.getScoresTotal();
     $scope.averageScore = scores.getAverageScore();
+    $scope.temper = scores.getTemperament();
+
 
     $scope.addScore = function() {
         if(!$scope.score || $scope.score === '') { return; }

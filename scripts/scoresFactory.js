@@ -22,6 +22,18 @@ happinessApp.factory('scores', [function() {
             }
             return max;
         },
+        getTemperament: function() {
+            var temper = this.getMaxScore() - this.getMinScore();
+            if (temper <= 2) {
+                return "even-tempered";
+            }
+            else if (temper >= 6) {
+                return "moody";
+            }
+            else {
+                return "neither even-tempered or moody";
+            }
+        },
         getAverageScore: function() {
             var sum = 0;
             for( var i = 0; i < scores.length; i++ ){
