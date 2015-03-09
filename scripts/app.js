@@ -20,8 +20,16 @@ happinessApp.factory('reasons', [function() {
 
 happinessApp.factory('scores', [function() {
     var scores = [];
+    var max;
+    var min;
 
     return {
+        getMinScore: function() {
+            return Math.min.apply(null, scores);
+        }
+        getMaxScore: function() {
+            return Math.max.apply(null, scores);
+        }
         getAverageScore: function() {
             var sum = 0;
             for( var i = 0; i < scores.length; i++ ){
@@ -64,26 +72,26 @@ happinessApp.controller('ScoresController', function($scope, scores) {
         if (!((currentScore !== currentScore) || (currentScore < 1)
             || currentScore > 10)) {
             $scope.overallScore = currentScore;
-        } else {
-            alert("Please enter a number between 1 and 10");
-            return;
-        }
-
-        $scope.score = '';
-    };
-
-    $scope.addScore = function() {
-        if(!$scope.score || $scope.score === '') { return; }
-
-        var currentScore = parseInt($scope.score, 10);
-        if (!((currentScore !== currentScore) || (currentScore < 1)
-            || currentScore > 10)) {
-            $scope.scores.push(currentScore);
     } else {
         alert("Please enter a number between 1 and 10");
         return;
     }
 
     $scope.score = '';
+};
+
+$scope.addScore = function() {
+    if(!$scope.score || $scope.score === '') { return; }
+
+    var currentScore = parseInt($scope.score, 10);
+    if (!((currentScore !== currentScore) || (currentScore < 1)
+        || currentScore > 10)) {
+        $scope.scores.push(currentScore);
+} else {
+    alert("Please enter a number between 1 and 10");
+    return;
+}
+
+$scope.score = '';
 };
 });
