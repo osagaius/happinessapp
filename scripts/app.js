@@ -98,3 +98,4 @@ happinessApp.controller('ScoresController', function($scope, scores) {
     };
 
 });
+

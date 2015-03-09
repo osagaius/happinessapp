@@ -65,7 +65,8 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
         
         .state('statistics', {
             url: '/statistics',
-            templateUrl: 'html/statistics.html'
+            templateUrl: 'html/statistics.html',
+            controller: 'StatisticsController'
         })
 
     });
