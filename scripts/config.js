@@ -63,4 +63,9 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
             controller: 'ScoresController'
         })
         
+        .state('home.overall', {
+            url: '/overall',
+            controller: 'ScoresController'
+        })
+
     });

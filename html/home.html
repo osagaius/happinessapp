@@ -1,17 +1,19 @@
 <div class="jumbotron text-center">
-    <h1>Track Your Happiness</h1>
-    <p>How happy are you?</p>
-    
-    <a ui-sref=".why" class="btn btn-primary">Why?</a>
-    <a ui-sref=".what" class="btn btn-danger">Whyfore?</a>
-    <a ui-sref=".purpose" class="btn btn-danger">Purpose</a>
-    
-</div>
+	<h1>Track Your Happiness</h1>
+	<p>How happy are you?</p>
 
-<h4>Please rate your overall happiness in life from 1(low) to 10(high)</h4>
-<form ng-submit="addOverallScore()">
-	<input type="text" ng-model="score"></input>
-	<button type="submit">Submit</button>
-</form>
+	<a ui-sref=".why" class="btn btn-primary">Why?</a>
+	<a ui-sref=".what" class="btn btn-danger">Whyfore?</a>
+	<a ui-sref=".purpose" class="btn btn-danger">Purpose</a>
+
+	<div ng-controller = "ScoresController">
+		<h4>Please rate your overall happiness in life from 1(low) to 10(high)</h4>
+		<form ng-submit="addOverallScore()">
+			<input type="text" ng-model="score"></input>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+
+</div>
 
 <div ui-view></div>
