@@ -14,7 +14,7 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
         .state('home.why', {
             url: '/why',
             templateUrl: 'html/home-why.html',
-            controller: function($scope) {
+        controller: function($scope) {
                 $scope.reasons = ['Happiness makes you happy.', 
                 'Unhappiness makes you sad.', 
                 'Tracking happiness can make you happy.',
@@ -63,9 +63,9 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
             controller: 'ScoresController'
         })
         
-        .state('home.overall', {
-            url: '/overall',
-            controller: 'ScoresController'
+        .state('statistics', {
+            url: '/statistics',
+            templateUrl: 'html/statistics.html'
         })
 
     });

@@ -22,14 +22,15 @@ happinessApp.factory('scores', [function() {
     var scores = [];
     var max;
     var min;
+    var overallScore;
 
     return {
         getMinScore: function() {
             return Math.min.apply(null, scores);
-        }
+        },
         getMaxScore: function() {
             return Math.max.apply(null, scores);
-        }
+        },
         getAverageScore: function() {
             var sum = 0;
             for( var i = 0; i < scores.length; i++ ){
@@ -65,6 +66,22 @@ happinessApp.controller('ScoresController', function($scope, scores) {
     $scope.scoresTotal = scores.getScoresTotal();
     $scope.averageScore = scores.getAverageScore();
 
+
+    $scope.addScore = function() {
+        if(!$scope.score || $scope.score === '') { return; }
+
+        var currentScore = parseInt($scope.score, 10);
+        if (!((currentScore !== currentScore) || (currentScore < 1)
+            || currentScore > 10)) {
+            $scope.scores.push(currentScore);
+        } else {
+            alert("Please enter a number between 1 and 10");
+            return;
+        }
+
+        $scope.score = '';
+    };
+
     $scope.addOverallScore = function() {
         if(!$scope.score || $scope.score === '') { return; }
 
@@ -72,26 +89,12 @@ happinessApp.controller('ScoresController', function($scope, scores) {
         if (!((currentScore !== currentScore) || (currentScore < 1)
             || currentScore > 10)) {
             $scope.overallScore = currentScore;
-    } else {
-        alert("Please enter a number between 1 and 10");
-        return;
-    }
+        } else {
+            alert("Please enter a number between 1 and 10");
+            return;
+        }
 
-    $scope.score = '';
-};
+        $scope.score = '';
+    };
 
-$scope.addScore = function() {
-    if(!$scope.score || $scope.score === '') { return; }
-
-    var currentScore = parseInt($scope.score, 10);
-    if (!((currentScore !== currentScore) || (currentScore < 1)
-        || currentScore > 10)) {
-        $scope.scores.push(currentScore);
-} else {
-    alert("Please enter a number between 1 and 10");
-    return;
-}
-
-$scope.score = '';
-};
 });
