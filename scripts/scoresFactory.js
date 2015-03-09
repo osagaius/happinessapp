@@ -1,7 +1,14 @@
 happinessApp.factory('scores', [function() {
     var scores = [];
+    var overall = 0;
 
     return {
+        setOverallScore: function(score) {
+            overall = score;
+        },
+        getOverallScore: function() {
+            return overall;
+        },
         getMinScore: function() {
             var min = scores[0];
 

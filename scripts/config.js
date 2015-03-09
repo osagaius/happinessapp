@@ -37,6 +37,12 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
             controller: 'ReasonsController'
         })
         
+        .state('home.overall', {
+            url: '/overall',
+            templateUrl: 'html/home-overall.html',
+            controller: 'StatisticsController'
+        })
+        
         // about state with named views
         .state('about', {
             url: '/about',
@@ -66,7 +72,7 @@ happinessApp.config(function($stateProvider, $urlRouterProvider) {
         .state('statistics', {
             url: '/statistics',
             templateUrl: 'html/statistics.html',
-            controller: 'ScoresController'
+            controller: 'StatisticsController'
         })
 
     });
