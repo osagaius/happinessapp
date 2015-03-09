@@ -1,4 +1,4 @@
-var trackScores = function ($scope, statistics) {   
+var trackScores = function ($scope, scores) {   
     $scope.scores = scores.getScores();
     $scope.scoresTotal = scores.getScoresTotal();
     $scope.averageScore = scores.getAverageScore();
