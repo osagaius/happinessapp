@@ -1,15 +1,26 @@
 happinessApp.factory('scores', [function() {
     var scores = [];
-    var max;
-    var min;
-    var overallScore;
 
     return {
         getMinScore: function() {
-            return Math.min.apply(null, scores);
+            var min = scores[0];
+
+            for( var i = 0; i < scores.length; i++ ){
+                if (scores[i] < min) {
+                    min = scores[i];
+                }
+            }
+            return min;
         },
         getMaxScore: function() {
-            return Math.max.apply(null, scores);
+            var max = scores[0];
+
+            for( var i = 0; i < scores.length; i++ ){
+                if (scores[i] > max) {
+                    max = scores[i];
+                }
+            }
+            return max;
         },
         getAverageScore: function() {
             var sum = 0;
